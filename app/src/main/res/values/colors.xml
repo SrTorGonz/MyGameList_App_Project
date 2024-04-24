@@ -10,5 +10,7 @@
     <color name="background">#181B30</color>
     <color name="gris_claro">#AFAFAF</color>
     <color name="gris_oscuro">#707070</color>
+    <color name="transparente">#00FFFFFF</color>
+    <color name="azul">#35C2FF</color>
 
 </resources>
