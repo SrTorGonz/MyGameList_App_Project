@@ -7,40 +7,77 @@
     android:layout_height="match_parent"
     android:background="@drawable/login_fondo2"
     android:layout_gravity="center"
-    tools:context=".ui.login_Activity">
+    tools:context=".ui.singup_Activity">
 
     <ImageView
         android:id="@+id/curva_fondo"
         android:layout_width="415dp"
         android:layout_height="738dp"
 
-        android:src="@drawable/fondo_login"
+        android:src="@drawable/fondo_signin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:layout_width="210dp"
-        android:layout_height="210dp"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
         android:src="@drawable/logo_txt_claro"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <!--Nickname-->
+    <EditText
+        android:id="@+id/nickname_input"
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginEnd="55dp"
+        android:background="@drawable/rounded_text_box"
+        android:hint="Nickname"
+        android:singleLine="true"
+        android:paddingStart="40dp"
+        android:paddingEnd="55dp"
+        android:textColor="@color/gris_claro"
+        android:textColorHint="@color/gris_claro"
+        android:textSize="13sp"
+
+
+        app:layout_constraintBottom_toTopOf="@+id/email_input"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--nickname icon-->
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/icon_account_circle"
+
+        android:layout_marginEnd="25dp"
+
+        app:layout_constraintBottom_toBottomOf="@+id/nickname_input"
+        app:layout_constraintEnd_toEndOf="@+id/nickname_input"
+        app:layout_constraintTop_toTopOf="@+id/nickname_input" />
+
 
     <!--Email-->
     <EditText
         android:id="@+id/email_input"
         android:layout_width="match_parent"
         android:layout_height="53dp"
-        android:layout_marginTop="340dp"
+        android:layout_marginTop="19dp"
         android:layout_marginStart="55dp"
         android:layout_marginEnd="55dp"
         android:hint="Email"
+        android:singleLine="true"
         android:textColorHint="@color/gris_claro"
         android:textColor="@color/gris_claro"
         android:textSize="13sp"
-        android:singleLine="true"
+        android:scrollHorizontally="true"
         android:background="@drawable/rounded_text_box"
         android:paddingStart="40dp"
         android:paddingEnd="55dp"
@@ -50,7 +87,7 @@
         app:layout_constraintBottom_toTopOf="@+id/password_input"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/nickname_input" />
 
     <!--email icon-->
     <ImageView
@@ -74,10 +111,10 @@
         android:layout_marginEnd="55dp"
         android:hint="Password"
         android:singleLine="true"
-        android:password="true"
         android:textColorHint="@color/gris_claro"
         android:textColor="@color/gris_claro"
         android:textSize="13sp"
+        android:password="true"
         android:background="@drawable/rounded_text_box"
         android:paddingStart="40dp"
         android:paddingEnd="55dp"
@@ -106,7 +143,7 @@
         android:id="@+id/login_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:text="Sign in"
         android:background="@drawable/rounded_text_box"
         android:backgroundTint="@color/white"
         android:textColor="@color/black"
@@ -128,10 +165,10 @@
         android:id="@+id/new_to_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New to MyGameList?"
+        android:text="Already have an account?"
         android:textColor="@color/white"
 
-        android:layout_marginTop="90dp"
+        android:layout_marginTop="70dp"
         android:layout_marginStart="100dp"
 
 
@@ -146,10 +183,10 @@
         android:id="@+id/sign_up_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign up"
+        android:text="Login"
         android:textColor="@color/azul"
 
-        android:layout_marginTop="90dp"
+        android:layout_marginTop="70dp"
         android:layout_marginEnd="100dp"
 
 
@@ -158,8 +195,5 @@
         app:layout_constraintEnd_toEndOf="parent"
 
         />
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
