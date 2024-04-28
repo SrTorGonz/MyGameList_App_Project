@@ -8,6 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.mygamelist.R
 import android.content.Intent
+import com.example.mygamelist.MainActivity
 
 
 class login_Activity : AppCompatActivity() {
@@ -26,6 +27,15 @@ class login_Activity : AppCompatActivity() {
         signUpButton.setOnClickListener{
 
             val intent: Intent = Intent(this,singup_Activity::class.java)
+            startActivity(intent)
+        }
+
+        /*Boton-login- Si los datos son correctos, llevar a la actividad Main, de lo contrario
+        Volver a pedir los datos de inicio de sesion*/
+        val loginButton: TextView = findViewById(R.id.login_button)
+        loginButton.setOnClickListener{
+
+            val intent: Intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
         }
 
