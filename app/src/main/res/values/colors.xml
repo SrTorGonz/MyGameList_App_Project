@@ -12,5 +12,6 @@
     <color name="gris_oscuro">#707070</color>
     <color name="transparente">#00FFFFFF</color>
     <color name="azul">#35C2FF</color>
+    <color name="moradoNavegacion">#282D4B</color>
 
 </resources>
