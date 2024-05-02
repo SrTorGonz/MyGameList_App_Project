@@ -20,51 +20,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!--Top bar-->
-    <ImageView
-        android:id="@+id/top_bar"
-        android:layout_width="match_parent"
-        android:layout_height="57dp"
-        android:src="@drawable/top_bar"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <!--Notifications icon-->
-    <ImageView
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:src="@drawable/ic_notifications_black_24dp"
-
-        android:layout_marginStart="25dp"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="@+id/top_bar"
-        app:layout_constraintTop_toTopOf="@+id/top_bar"/>
-
-    <!--User icon-->
-    <ImageView
-        android:layout_width="33dp"
-        android:layout_height="33dp"
-        android:src="@drawable/icon_account_circle"
-
-        android:layout_marginEnd="25dp"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="@+id/top_bar"
-        app:layout_constraintTop_toTopOf="@+id/top_bar"/>
-
-    <!--MyGameList icon-->
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:src="@drawable/texto_mygamelist_white"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="@+id/top_bar"
-        app:layout_constraintTop_toTopOf="@+id/top_bar"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
