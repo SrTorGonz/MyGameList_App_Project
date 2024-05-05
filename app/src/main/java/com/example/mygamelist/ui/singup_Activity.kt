@@ -41,9 +41,9 @@ class singup_Activity : AppCompatActivity() {
     private fun singup() {
 
         val signupButton: Button = findViewById(R.id.signup_button)
-        var email_input: EditText=findViewById(R.id.email_input)
-        var password_input: EditText=findViewById(R.id.password_input)
-        var nickname_input: EditText=findViewById(R.id.nickname_input)
+        val email_input: EditText=findViewById(R.id.email_input)
+        val password_input: EditText=findViewById(R.id.password_input)
+        val nickname_input: EditText=findViewById(R.id.nickname_input)
 
         signupButton.setOnClickListener{
             if (email_input.text.isNotEmpty() && password_input.text.isNotEmpty() && nickname_input.text.isNotEmpty() ){

@@ -41,8 +41,8 @@ class login_Activity : AppCompatActivity() {
     private fun login() {
 
         val loginButton: Button = findViewById(R.id.login_button)
-        var email_input: EditText =findViewById(R.id.email_input)
-        var password_input: EditText =findViewById(R.id.password_input)
+        val email_input: EditText =findViewById(R.id.email_input)
+        val password_input: EditText =findViewById(R.id.password_input)
 
         loginButton.setOnClickListener{
             if (email_input.text.isNotEmpty() && password_input.text.isNotEmpty()){
