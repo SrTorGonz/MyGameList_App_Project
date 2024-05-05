@@ -34,11 +34,11 @@ class singup_Activity : AppCompatActivity() {
         }
 
         //registro
-        registro()
+        singup()
     }
 
     // funcion que registra el email y contrasena del usuario
-    private fun registro() {
+    private fun singup() {
 
         val signupButton: Button = findViewById(R.id.signup_button)
         var email_input: EditText=findViewById(R.id.email_input)

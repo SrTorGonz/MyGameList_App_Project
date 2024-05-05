@@ -8,7 +8,11 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.mygamelist.R
 import android.content.Intent
+import android.widget.Button
+import android.widget.EditText
+import androidx.appcompat.app.AlertDialog
 import com.example.mygamelist.MainActivity
+import com.google.firebase.auth.FirebaseAuth
 
 
 class login_Activity : AppCompatActivity() {
@@ -30,14 +34,46 @@ class login_Activity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        /*Boton-login- Si los datos son correctos, llevar a la actividad Main, de lo contrario
-        Volver a pedir los datos de inicio de sesion*/
-        val loginButton: TextView = findViewById(R.id.login_button)
+        //inicio de sesion
+        login()
+    }
+    // funcion que registra el email y contrasena del usuario
+    private fun login() {
+
+        val loginButton: Button = findViewById(R.id.login_button)
+        var email_input: EditText =findViewById(R.id.email_input)
+        var password_input: EditText =findViewById(R.id.password_input)
+
         loginButton.setOnClickListener{
+            if (email_input.text.isNotEmpty() && password_input.text.isNotEmpty()){
 
-            val intent: Intent = Intent(this,MainActivity::class.java)
-            startActivity(intent)
+                FirebaseAuth.getInstance()
+                    .signInWithEmailAndPassword(email_input.text.toString(),password_input.text.toString())
+
+                    .addOnCompleteListener{
+                        //si es correcto lleva a la actividad Main
+                        if(it.isSuccessful){
+                            val intent: Intent = Intent(this,MainActivity::class.java)
+                            startActivity(intent)
+                            //de lo contrario mostrar una alerta
+                        }else{
+                            showAlert("INCORRECT user or password, please try again")
+                        }
+                    }
+
+            }else{
+                showAlert("Please complete all fields before continuing")
+            }
         }
+    }
 
+    //funcion que muestra un error recibe el mensaje a mostrar
+    private fun showAlert(msg: String){
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Error")
+        builder.setMessage(msg)
+        builder.setPositiveButton("Accept", null)
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
     }
 }
