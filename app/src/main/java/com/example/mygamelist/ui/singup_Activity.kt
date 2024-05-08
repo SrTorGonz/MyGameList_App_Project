@@ -13,8 +13,11 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.mygamelist.R
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class singup_Activity : AppCompatActivity() {
+
+    private val db= FirebaseFirestore.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -54,6 +57,9 @@ class singup_Activity : AppCompatActivity() {
                     .addOnCompleteListener{
                         //si es correcto lleva a la actividad login
                         if(it.isSuccessful){
+                            db.collection("users").document(email_input.text.toString()).set(
+                                hashMapOf("nickname" to nickname_input.text.toString(),"profile_Pic" to "https://firebasestorage.googleapis.com/v0/b/mygamelist-28430.appspot.com/o/Default_Profile_Pic.png?alt=media&token=5b174c0c-1157-4dc1-a3aa-19272da13db6")
+                            )
                             val intent: Intent = Intent(this,login_Activity::class.java)
                             startActivity(intent)
                         //de lo contrario mostrar una alerta
