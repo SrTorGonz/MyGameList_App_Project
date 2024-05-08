@@ -23,4 +23,22 @@
 
 
 
+
+    <!--Texto de prueba-->
+    <TextView
+        android:id="@+id/text_prueba"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="150dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textColor="@color/azul"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

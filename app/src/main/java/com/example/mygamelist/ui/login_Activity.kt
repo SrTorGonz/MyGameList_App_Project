@@ -53,8 +53,7 @@ class login_Activity : AppCompatActivity() {
                     .addOnCompleteListener{
                         //si es correcto lleva a la actividad Main
                         if(it.isSuccessful){
-                            val intent: Intent = Intent(this,MainActivity::class.java)
-                            startActivity(intent)
+                            showHome(it.result?.user?.email?: "")
                             //de lo contrario mostrar una alerta
                         }else{
                             showAlert("INCORRECT user or password, please try again")
@@ -76,4 +75,13 @@ class login_Activity : AppCompatActivity() {
         val dialog: AlertDialog = builder.create()
         dialog.show()
     }
+
+    private fun showHome(email:String){
+        val intent: Intent = Intent(this,MainActivity::class.java).apply{
+            putExtra("email",email)
+        }
+        startActivity(intent)
+    }
+
+
 }
