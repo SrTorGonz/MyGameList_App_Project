@@ -47,29 +47,32 @@
         app:layout_constraintBottom_toBottomOf="@+id/top_bar"
         app:layout_constraintTop_toTopOf="@+id/top_bar"/>
 
-    <!--User icon-->
-    <ImageView
+    <!--Imagen de perfil del usuario-->
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/roundedImageView"
         android:layout_width="33dp"
         android:layout_height="33dp"
-        android:src="@drawable/icon_account_circle_80"
-
         android:layout_marginEnd="25dp"
 
-        app:tint="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:shapeAppearanceOverlay="@style/circular"
         app:layout_constraintBottom_toBottomOf="@+id/top_bar"
-        app:layout_constraintTop_toTopOf="@+id/top_bar"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/top_bar"
+        />
 
     <!--MyGameList icon-->
+
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="100dp"
         android:layout_height="40dp"
-        android:src="@drawable/texto_mygamelist_white"
 
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/texto_mygamelist_white"
         app:layout_constraintBottom_toBottomOf="@+id/top_bar"
-        app:layout_constraintTop_toTopOf="@+id/top_bar"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/top_bar" />
 
     <!--Fragment barra inferior-->
     <fragment
