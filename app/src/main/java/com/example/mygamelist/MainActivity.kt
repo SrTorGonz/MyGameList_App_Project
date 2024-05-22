@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private val db = FirebaseFirestore.getInstance()
-    private var imageUrl: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,12 +32,13 @@ class MainActivity : AppCompatActivity() {
         val email = bundle?. getString("email")?:"default@example.com"
         //imageview del xml
         val roundedImageView: ShapeableImageView = findViewById(R.id.roundedImageView)
+        var imageUrl: String? = null
 
         //recuperar imagen de perfil del usuario
         db.collection("users").document(email).get()
             .addOnSuccessListener { document ->
                 if (document != null && document.exists()) {
-                    val imageUrl = document.getString("profile_Pic")
+                    imageUrl = document.getString("profile_Pic")
                     if (imageUrl != null) {
                         // Usar Glide para cargar la imagen
                         Glide.with(this)
