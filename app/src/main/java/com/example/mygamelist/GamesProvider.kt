@@ -44,7 +44,16 @@ class GamesProvider {
                 "December 10, 2020",
                 listOf("PC", "Xbox", "Playstation"),
                 listOf("Adventure", "RPG", "Action")
+            ),
+            Videojuego(
+                "Hollow Knight",
+                "A 2D metroidvania with an emphasis on close combat and exploration in which the player enters the once-prosperous now-bleak insect kingdom of Hallownest, travels through its various districts, meets friendly inhabitants, fights hostile ones and uncovers the kingdom's history while improving their combat abilities and movement arsenal by fighting bosses and accessing out-of-the-way areas.",
+                "https://images.igdb.com/igdb/image/upload/t_cover_big/co1rgi.webp",
+                "February 24, 2017",
+                listOf("PC", "Xbox", "Playstation","Nintendo Switch"),
+                listOf("Adventure", "Indie", "Platform")
             )
+
         )
     }
 }

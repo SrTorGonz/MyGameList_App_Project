@@ -22,4 +22,10 @@
         android:name="com.example.mygamelist.ui.notifications.MyListFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_mylist" />
+    <fragment
+        android:id="@+id/navigation_game"
+        android:name="com.example.mygamelist.GameFragment"
+        android:label="fragment_game"
+        tools:layout="@layout/fragment_game" />
+
 </navigation>

@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
@@ -19,6 +20,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mygamelist.CustomItemDecoration
+import com.example.mygamelist.GameFragment
 import com.example.mygamelist.GamesProvider
 import com.example.mygamelist.R
 import com.example.mygamelist.Videojuego
@@ -70,7 +72,12 @@ class SearchFragment : Fragment() {
 
     //funcion que inicializa el recyclerview
     private fun initRecyclerView(){
-        adapter = SearchAdapter(gameMutableList)
+        adapter = SearchAdapter(gameMutableList){videojuego ->
+            onItemSelected(
+                videojuego
+            )
+        }
+
         val manager = LinearLayoutManager(requireContext())
         binding.recyclerSearch.layoutManager=manager
         binding.recyclerSearch.adapter = adapter
@@ -80,6 +87,16 @@ class SearchFragment : Fragment() {
         val customItemDecoration = CustomItemDecoration(spaceHeight)
         binding.recyclerSearch.addItemDecoration(customItemDecoration)
 
+    }
+    //cuando se toca un item se ejecuta esto
+    fun onItemSelected(videojuego: Videojuego){
+        // Create an instance of FragmentB
+        val gameFragment = GameFragment.newInstance()
+
+        // Replace the current fragment with FragmentB
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.nav_host_fragment_activity_main, gameFragment)
+            .commit()
     }
     override fun onDestroyView() {
         super.onDestroyView()
