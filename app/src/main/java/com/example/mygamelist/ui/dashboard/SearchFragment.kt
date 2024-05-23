@@ -13,7 +13,11 @@ import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.mygamelist.GamesProvider
 import com.example.mygamelist.R
+import com.example.mygamelist.adapter.SearchAdapter
 import com.example.mygamelist.databinding.FragmentSearchBinding
 
 class SearchFragment : Fragment() {
@@ -25,9 +29,11 @@ class SearchFragment : Fragment() {
     private val binding get() = _binding!!
 
     override fun onCreateView(
+
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
+
     ): View {
         val searchViewModel =
             ViewModelProvider(this).get(SearchViewModel::class.java)
@@ -40,6 +46,9 @@ class SearchFragment : Fragment() {
             textView.text = it
         }
 
+        val recyclerView: RecyclerView = root.findViewById(R.id.recyclerSearch)
+        recyclerView.layoutManager=LinearLayoutManager(requireContext())
+        recyclerView.adapter = SearchAdapter(GamesProvider.GameList)
 
         // Obtener referencia al SearchView
         val searchView: SearchView = root.findViewById(R.id.busqueda)

@@ -26,6 +26,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        //lista de juegos
+        GamesProvider.GameList
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
