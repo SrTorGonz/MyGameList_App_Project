@@ -22,28 +22,43 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 -->
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/busqueda"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+
+    <EditText
+        android:id="@+id/etFilter"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/rounded_search_box"
-
+        android:textColorHint="@color/gris_claro"
+        android:textColor="@color/gris_claro"
+        android:hint="Search Games"
+        android:textSize="12dp"
+        android:paddingStart="45dp"
+        android:paddingEnd="55dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:queryHint="Search Games" />
+        />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerSearch"
-        android:layout_width="match_parent"
+    <ImageView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/busqueda"
-        app:layout_constraintVertical_bias="0" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_marginStart="10dp"
+        android:src="@drawable/icon_search"
+        app:layout_constraintBottom_toBottomOf="@+id/etFilter"
+        app:layout_constraintStart_toStartOf="@+id/etFilter"
+        app:layout_constraintTop_toTopOf="@+id/etFilter" />
+
+       <androidx.recyclerview.widget.RecyclerView
+           android:id="@+id/recyclerSearch"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="20dp"
+           app:layout_constraintBottom_toBottomOf="parent"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/etFilter"
+           app:layout_constraintVertical_bias="0" />
+   </androidx.constraintlayout.widget.ConstraintLayout>
