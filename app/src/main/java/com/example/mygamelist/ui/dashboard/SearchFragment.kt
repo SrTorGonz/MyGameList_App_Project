@@ -13,8 +13,10 @@ import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mygamelist.CustomItemDecoration
 import com.example.mygamelist.GamesProvider
 import com.example.mygamelist.R
 import com.example.mygamelist.adapter.SearchAdapter
@@ -46,9 +48,16 @@ class SearchFragment : Fragment() {
             textView.text = it
         }
 
+        //recuperar el recyyclerview
         val recyclerView: RecyclerView = root.findViewById(R.id.recyclerSearch)
         recyclerView.layoutManager=LinearLayoutManager(requireContext())
         recyclerView.adapter = SearchAdapter(GamesProvider.GameList)
+
+        //aañadir separacion entre items
+        val spaceHeight = resources.getDimensionPixelSize(R.dimen.recycler_view_item_space)
+        val customItemDecoration = CustomItemDecoration(spaceHeight)
+        recyclerView.addItemDecoration(customItemDecoration)
+
 
         // Obtener referencia al SearchView
         val searchView: SearchView = root.findViewById(R.id.busqueda)

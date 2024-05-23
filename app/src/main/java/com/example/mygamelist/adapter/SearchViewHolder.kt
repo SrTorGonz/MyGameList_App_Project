@@ -7,16 +7,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.mygamelist.R
 import com.example.mygamelist.Videojuego
+import com.example.mygamelist.databinding.ItemSearchGamesBinding
 
 class SearchViewHolder (view: View): RecyclerView.ViewHolder(view){
 
-    val imgPortada = view.findViewById<ImageView>(R.id.img_portada)
-    val gameName = view.findViewById<TextView>(R.id.text_Name)
+    val binding = ItemSearchGamesBinding.bind(view)
+
 
     fun render(gameModel: Videojuego){
-        gameName.text = gameModel.nombre
-        Glide.with(imgPortada)
+        binding.textName.text = gameModel.nombre
+        Glide.with(binding.imgPortada)
             .load(gameModel.imagenPortada)
-            .into(imgPortada)
+            .into(binding.imgPortada)
     }
 }
