@@ -7,7 +7,7 @@ import com.example.mygamelist.GamesProvider
 import com.example.mygamelist.R
 import com.example.mygamelist.Videojuego
 
-class SearchAdapter(private val GameList:List<Videojuego>): RecyclerView.Adapter<SearchViewHolder>() {
+class SearchAdapter(private var GameList:List<Videojuego>): RecyclerView.Adapter<SearchViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         return SearchViewHolder(layoutInflater.inflate(R.layout.item_search_games,parent,false))
@@ -22,5 +22,9 @@ class SearchAdapter(private val GameList:List<Videojuego>): RecyclerView.Adapter
         holder.render(item)
     }
 
+    fun updateGames(GameList:List<Videojuego>){
+        this.GameList = GameList
+        notifyDataSetChanged()
+    }
 
 }

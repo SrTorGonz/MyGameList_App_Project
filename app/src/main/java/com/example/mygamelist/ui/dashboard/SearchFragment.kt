@@ -56,14 +56,14 @@ class SearchFragment : Fragment() {
         }
         */
 
-        //recuperar el recyyclerview
-        initRecyclerView()
-
-
-        //recibir el edit text y detectar cuando cambia el texto
-        binding.etFilter.addTextChangedListener{
-
+        //recibir el edit text y detectar cuando cambia el texto, filtrar juegos
+        binding.etFilter.addTextChangedListener{userFilter->
+            val gamesFiltered = gameMutableList.filter{game -> game.nombre.lowercase().contains(userFilter.toString().lowercase())}
+            adapter.updateGames(gamesFiltered)
         }
+
+        //iniciar el recyclerview
+        initRecyclerView()
 
         return root
     }
