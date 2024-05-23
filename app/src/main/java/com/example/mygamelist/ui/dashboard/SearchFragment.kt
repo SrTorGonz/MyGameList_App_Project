@@ -21,10 +21,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mygamelist.CustomItemDecoration
 import com.example.mygamelist.GamesProvider
 import com.example.mygamelist.R
+import com.example.mygamelist.Videojuego
 import com.example.mygamelist.adapter.SearchAdapter
 import com.example.mygamelist.databinding.FragmentSearchBinding
 
 class SearchFragment : Fragment() {
+
+    private var gameMutableList:MutableList<Videojuego> = GamesProvider.GameList.toMutableList()
+    private lateinit var adapter: SearchAdapter
 
     private var _binding: FragmentSearchBinding? = null
 
@@ -53,22 +57,30 @@ class SearchFragment : Fragment() {
         */
 
         //recuperar el recyyclerview
-        val recyclerView: RecyclerView = root.findViewById(R.id.recyclerSearch)
-        recyclerView.layoutManager=LinearLayoutManager(requireContext())
-        recyclerView.adapter = SearchAdapter(GamesProvider.GameList)
+        initRecyclerView()
 
-        //aañadir separacion entre items
-        val spaceHeight = resources.getDimensionPixelSize(R.dimen.recycler_view_item_space)
-        val customItemDecoration = CustomItemDecoration(spaceHeight)
-        recyclerView.addItemDecoration(customItemDecoration)
 
+        //recibir el edit text y detectar cuando cambia el texto
         binding.etFilter.addTextChangedListener{
-            Log.i("aris",it.toString())
+
         }
 
         return root
     }
 
+    //funcion que inicializa el recyclerview
+    private fun initRecyclerView(){
+        adapter = SearchAdapter(gameMutableList)
+        val manager = LinearLayoutManager(requireContext())
+        binding.recyclerSearch.layoutManager=manager
+        binding.recyclerSearch.adapter = adapter
+
+        //añadir separacion entre items
+        val spaceHeight = resources.getDimensionPixelSize(R.dimen.recycler_view_item_space)
+        val customItemDecoration = CustomItemDecoration(spaceHeight)
+        binding.recyclerSearch.addItemDecoration(customItemDecoration)
+
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
