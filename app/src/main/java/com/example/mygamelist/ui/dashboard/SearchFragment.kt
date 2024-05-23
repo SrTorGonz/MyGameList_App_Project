@@ -43,11 +43,13 @@ class SearchFragment : Fragment() {
         _binding = FragmentSearchBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        /*
         val textView: TextView = binding.textDashboard
         searchViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
-
+        */
+        
         //recuperar el recyyclerview
         val recyclerView: RecyclerView = root.findViewById(R.id.recyclerSearch)
         recyclerView.layoutManager=LinearLayoutManager(requireContext())

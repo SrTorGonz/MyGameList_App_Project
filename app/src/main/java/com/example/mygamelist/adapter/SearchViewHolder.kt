@@ -19,5 +19,6 @@ class SearchViewHolder (view: View): RecyclerView.ViewHolder(view){
         Glide.with(binding.imgPortada)
             .load(gameModel.imagenPortada)
             .into(binding.imgPortada)
+        binding.textSynopsis.text =gameModel.sinopsis
     }
 }

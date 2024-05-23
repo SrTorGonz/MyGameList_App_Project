@@ -7,6 +7,7 @@
     android:background="@color/background"
     tools:context=".ui.dashboard.SearchFragment">
 
+    <!--
     <TextView
         android:id="@+id/text_dashboard"
         android:layout_width="match_parent"
@@ -20,7 +21,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
+-->
     <androidx.appcompat.widget.SearchView
         android:id="@+id/busqueda"
         android:layout_width="0dp"
