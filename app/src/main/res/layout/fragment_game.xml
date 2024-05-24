@@ -39,11 +39,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/back_icon" />
 
+    <ImageView
+        android:id="@+id/iconTrophy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="75dp"
+        android:src="@drawable/icon_trophy"
+        app:layout_constraintBottom_toTopOf="@id/textPlatform"
+        app:layout_constraintStart_toEndOf="@id/portada"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/txt_fecha"
         android:layout_width="162dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:layout_marginStart="14dp"
         android:text="Synopsis"
         android:textColor="@color/gris_claro"
@@ -72,7 +83,7 @@
         android:id="@+id/textPlatform"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="10dp"
         android:layout_marginStart="14dp"
         android:gravity="center"
         android:text="Platforms"
@@ -80,7 +91,7 @@
         android:textSize="13sp"
 
         app:layout_constraintStart_toEndOf="@+id/portada"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/iconTrophy" />
 
     <TextView
         android:id="@+id/plat1"
