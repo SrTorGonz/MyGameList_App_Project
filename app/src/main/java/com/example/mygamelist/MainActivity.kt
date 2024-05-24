@@ -6,6 +6,7 @@ import android.widget.EditText
 import android.widget.TextView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -29,6 +30,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val db = FirebaseFirestore.getInstance()
     private lateinit var navController: NavController
+    private lateinit var sharedViewModel: SharedViewModel
 
     private var gameMutableList:MutableList<Videojuego> = GamesProvider.GameList.toMutableList()
 
@@ -94,6 +96,16 @@ class MainActivity : AppCompatActivity() {
                     navController.navigate(R.id.action_navigation_game_to_navigation_profile)
                 }
             }
+
+            sharedViewModel = ViewModelProvider(this).get(SharedViewModel::class.java)
+
+            sharedViewModel.profilePicUrl.observe(
+                this,) { url ->
+                Glide.with(this)
+                    .load(url)
+                    .into(binding.roundedImageView)
+            }
+
         }
 
             /*

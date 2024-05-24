@@ -32,6 +32,8 @@ class ProfileFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    private lateinit var sharedViewModel: SharedViewModel
+
 
     override fun onCreateView(
 
@@ -45,6 +47,7 @@ class ProfileFragment : Fragment() {
 
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         val root: View = binding.root
+        sharedViewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
 
         val userEmail = FirebaseAuth.getInstance().currentUser?.email ?: return root
 
@@ -54,9 +57,9 @@ class ProfileFragment : Fragment() {
 
         binding.roundedProfileImageView.setOnClickListener {
             AlertDialog.Builder(requireContext())
-                .setTitle("Cambiar imagen de perfil")
-                .setMessage("¿Deseas cambiar tu imagen de perfil?")
-                .setPositiveButton("Sí") { dialog, which ->
+                .setTitle("Change profile picture")
+                .setMessage("Do you want to change your profile picture")
+                .setPositiveButton("Yes") { dialog, which ->
                     // Abre el selector de imágenes
                     val intent = Intent(Intent.ACTION_PICK)
                     intent.type = "image/*"
@@ -108,6 +111,7 @@ class ProfileFragment : Fragment() {
         val userRef = db.collection("users").document(userEmail)
         userRef.update("profile_Pic", downloadUrl)
             .addOnSuccessListener {
+                sharedViewModel.profilePicUrl.value = downloadUrl
                 // Actualizar el ImageView con la nueva imagen
                 Glide.with(this)
                     .load(downloadUrl)
