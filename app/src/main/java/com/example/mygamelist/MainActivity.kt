@@ -70,12 +70,33 @@ class MainActivity : AppCompatActivity() {
             }
 
         //abrir fragment de perfil
-        binding.roundedImageView.setOnClickListener{
+        binding.roundedImageView.setOnClickListener {
+            val currentDestination = navController.currentDestination?.id
 
-            navController.navigate(R.id.action_navigation_home_to_profileFragment)
+            when (currentDestination) {
+                R.id.navigation_home -> {
+                    // Si estás en el fragmento de inicio, haz algo
+                    navController.navigate(R.id.action_navigation_home_to_profileFragment)
+                }
+
+                R.id.navigation_search -> {
+                    // Si estás en el fragmento de búsqueda, haz algo
+                    navController.navigate(R.id.action_navigation_search_to_navigation_profile)
+                }
+
+                R.id.navigation_mylist -> {
+                    // Si estás en el fragmento de mi lista, haz algo
+                    navController.navigate(R.id.action_navigation_mylist_to_navigation_profile)
+                }
+
+                R.id.navigation_game -> {
+                    // Si estas en el fragmento de mi game, haz algo
+                    navController.navigate(R.id.action_navigation_game_to_navigation_profile)
+                }
+            }
         }
 
-        /*
+            /*
         val navView: BottomNavigationView = binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
@@ -89,9 +110,11 @@ class MainActivity : AppCompatActivity() {
         //setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 */
-        val navHost = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
-        navController = navHost.navController
-        binding.navView.setupWithNavController(navController)
+            val navHost =
+                supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
+            navController = navHost.navController
+            binding.navView.setupWithNavController(navController)
+
 
     }
 }

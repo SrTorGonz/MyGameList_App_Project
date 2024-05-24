@@ -26,13 +26,22 @@
             app:destination="@id/navigation_game"
             app:popUpTo="@id/navigation_search">
         </action>
+        <action
+            android:id="@+id/action_navigation_search_to_navigation_profile"
+            app:destination="@id/navigation_profile"
+            app:popUpTo="@id/navigation_search" />
     </fragment>
 
     <fragment
         android:id="@+id/navigation_mylist"
         android:name="com.example.mygamelist.ui.notifications.MyListFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_mylist" />
+        tools:layout="@layout/fragment_mylist" >
+        <action
+            android:id="@+id/action_navigation_mylist_to_navigation_profile"
+            app:destination="@id/navigation_profile"
+            app:popUpTo="@id/navigation_mylist" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_game"
@@ -42,6 +51,10 @@
         <argument
             android:name="videojuego"
             app:argType="com.example.mygamelist.Videojuego" />
+        <action
+            android:id="@+id/action_navigation_game_to_navigation_profile"
+            app:destination="@id/navigation_profile"
+            app:popUpTo="@id/navigation_game" />
     </fragment>
 
     <fragment
