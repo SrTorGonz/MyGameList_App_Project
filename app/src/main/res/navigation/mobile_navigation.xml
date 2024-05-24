@@ -46,7 +46,7 @@
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.example.mygamelist.ui.home.ProfileFragment"
+        android:name="com.example.mygamelist.ProfileFragment"
         android:label="ProfileFragment" />
 
 </navigation>

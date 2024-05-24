@@ -45,7 +45,6 @@ class MainActivity : AppCompatActivity() {
         val bundle = intent.extras
         val email = bundle?.getString("email") ?: "default@example.com"
         //imageview del xml
-        val roundedImageView: ShapeableImageView = findViewById(R.id.roundedImageView)
         var imageUrl: String? = null
 
 
@@ -58,7 +57,7 @@ class MainActivity : AppCompatActivity() {
                         // Usar Glide para cargar la imagen
                         Glide.with(this)
                             .load(imageUrl)
-                            .into(roundedImageView)
+                            .into(binding.roundedImageView)
                     } else {
                         println("Profile Pic URL not found")
                     }
