@@ -19,7 +19,14 @@
         <action
             android:id="@+id/action_navigation_search_to_navigation_game"
             app:destination="@id/navigation_game"
-            app:popUpTo="@id/navigation_search" />
+            app:popUpTo="@id/navigation_search">
+            <!--
+            <argument
+                android:name="videojuego"
+                app:argType="com.example.mygamelist.Videojuego"
+                app:nullable="false" />
+                -->
+        </action>
     </fragment>
 
     <fragment
@@ -32,6 +39,10 @@
         android:id="@+id/navigation_game"
         android:name="com.example.mygamelist.GameFragment"
         android:label="fragment_game"
-        tools:layout="@layout/fragment_game" />
+        tools:layout="@layout/fragment_game" >
+        <argument
+            android:name="videojuego"
+            app:argType="com.example.mygamelist.Videojuego" />
+    </fragment>
 
 </navigation>

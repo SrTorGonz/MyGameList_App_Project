@@ -92,9 +92,8 @@ class SearchFragment : Fragment() {
     //cuando se toca un item se ejecuta esto
     fun onItemSelected(videojuego: Videojuego){
 
-        findNavController().navigate(
-            R.id.action_navigation_search_to_navigation_game
-        )
+        val action = SearchFragmentDirections.actionNavigationSearchToNavigationGame(videojuego)
+        findNavController().navigate(action)
     }
     override fun onDestroyView() {
         super.onDestroyView()
