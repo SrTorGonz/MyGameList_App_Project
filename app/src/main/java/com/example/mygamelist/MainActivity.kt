@@ -9,14 +9,18 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.bumptech.glide.Glide
 import com.example.mygamelist.databinding.ActivityMainBinding
+import com.example.mygamelist.ui.dashboard.SearchFragmentDirections
 import com.example.mygamelist.ui.home.HomeFragment
 import com.google.android.material.imageview.ShapeableImageView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -44,6 +48,7 @@ class MainActivity : AppCompatActivity() {
         val roundedImageView: ShapeableImageView = findViewById(R.id.roundedImageView)
         var imageUrl: String? = null
 
+
         //recuperar imagen de perfil del usuario
         db.collection("users").document(email).get()
             .addOnSuccessListener { document ->
@@ -65,11 +70,11 @@ class MainActivity : AppCompatActivity() {
                 println("Error getting document: ${exception.message}")
             }
 
+        //abrir fragment de perfil
+        binding.roundedImageView.setOnClickListener{
 
-        //Prueba
-        val prueba: TextView = findViewById(R.id.text_prueba)
-        prueba.text = imageUrl
-
+            navController.navigate(R.id.action_navigation_home_to_profileFragment)
+        }
 
         /*
         val navView: BottomNavigationView = binding.navView
