@@ -43,7 +43,6 @@ class GameFragment : Fragment() {
             .into(binding.portada)
         binding.txtFecha.text=args.videojuego.fechaLanzamiento
 
-        //mostrar las plataformas
         // Mostrar las plataformas
         if (args.videojuego.plataformas.size > 0) {
             binding.plat1.text = args.videojuego.plataformas[0]
@@ -69,8 +68,30 @@ class GameFragment : Fragment() {
             binding.plat4.visibility = View.GONE // Oculta el TextView si no hay datos
         }
 
+        // Mostrar los tags
+        if (args.videojuego.tags.size > 0) {
+            binding.tag1.text = args.videojuego.tags[0]
+        } else {
+            binding.tag1.visibility = View.GONE // Oculta el TextView si no hay datos
+        }
 
+        if (args.videojuego.tags.size > 1) {
+            binding.tag2.text = args.videojuego.tags[1]
+        } else {
+            binding.tag2.visibility = View.GONE // Oculta el TextView si no hay datos
+        }
 
+        if (args.videojuego.tags.size > 2) {
+            binding.tag3.text = args.videojuego.tags[2]
+        } else {
+            binding.tag3.visibility = View.GONE // Oculta el TextView si no hay datos
+        }
+
+        if (args.videojuego.tags.size > 3) {
+            binding.tag4.text = args.videojuego.tags[3]
+        } else {
+            binding.tag4.visibility = View.GONE // Oculta el TextView si no hay datos
+        }
 
 
         //ir para atras
@@ -82,12 +103,6 @@ class GameFragment : Fragment() {
         }
 
         return root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-
     }
 
     override fun onDestroyView() {
