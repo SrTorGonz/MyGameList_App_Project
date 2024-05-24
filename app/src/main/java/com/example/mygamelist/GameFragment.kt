@@ -44,15 +44,31 @@ class GameFragment : Fragment() {
         binding.txtFecha.text=args.videojuego.fechaLanzamiento
 
         //mostrar las plataformas
-        if (args.videojuego.plataformas[0].isNotEmpty()) {
-            binding.plat1.text=args.videojuego.plataformas[0]
+        // Mostrar las plataformas
+        if (args.videojuego.plataformas.size > 0) {
+            binding.plat1.text = args.videojuego.plataformas[0]
+        } else {
+            binding.plat1.visibility = View.GONE // Oculta el TextView si no hay datos
         }
-        if (args.videojuego.plataformas[1].isNotEmpty()) {
-            binding.plat2.text=args.videojuego.plataformas[1]
+
+        if (args.videojuego.plataformas.size > 1) {
+            binding.plat2.text = args.videojuego.plataformas[1]
+        } else {
+            binding.plat2.visibility = View.GONE // Oculta el TextView si no hay datos
         }
-        if (args.videojuego.plataformas[2].isNotEmpty()) {
-            binding.plat3.text=args.videojuego.plataformas[2]
+
+        if (args.videojuego.plataformas.size > 2) {
+            binding.plat3.text = args.videojuego.plataformas[2]
+        } else {
+            binding.plat3.visibility = View.GONE // Oculta el TextView si no hay datos
         }
+
+        if (args.videojuego.plataformas.size > 3) {
+            binding.plat4.text = args.videojuego.plataformas[3]
+        } else {
+            binding.plat4.visibility = View.GONE // Oculta el TextView si no hay datos
+        }
+
 
 
 
