@@ -16,6 +16,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -90,13 +91,10 @@ class SearchFragment : Fragment() {
     }
     //cuando se toca un item se ejecuta esto
     fun onItemSelected(videojuego: Videojuego){
-        // Create an instance of FragmentB
-        val gameFragment = GameFragment.newInstance()
 
-        // Replace the current fragment with FragmentB
-        parentFragmentManager.beginTransaction()
-            .replace(R.id.nav_host_fragment_activity_main, gameFragment)
-            .commit()
+        findNavController().navigate(
+            R.id.action_navigation_search_to_navigation_game
+        )
     }
     override fun onDestroyView() {
         super.onDestroyView()

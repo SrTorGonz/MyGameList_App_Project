@@ -6,7 +6,9 @@ import android.widget.EditText
 import android.widget.TextView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
@@ -22,6 +24,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private val db = FirebaseFirestore.getInstance()
+    private lateinit var navController: NavController
 
     private var gameMutableList:MutableList<Videojuego> = GamesProvider.GameList.toMutableList()
 
@@ -36,7 +39,7 @@ class MainActivity : AppCompatActivity() {
 
         //Guarda el email del usuario del login
         val bundle = intent.extras
-        val email = bundle?. getString("email")?:"default@example.com"
+        val email = bundle?.getString("email") ?: "default@example.com"
         //imageview del xml
         val roundedImageView: ShapeableImageView = findViewById(R.id.roundedImageView)
         var imageUrl: String? = null
@@ -64,11 +67,11 @@ class MainActivity : AppCompatActivity() {
 
 
         //Prueba
-        val prueba: TextView =findViewById(R.id.text_prueba)
-        prueba.text=imageUrl
+        val prueba: TextView = findViewById(R.id.text_prueba)
+        prueba.text = imageUrl
 
 
-
+        /*
         val navView: BottomNavigationView = binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
@@ -76,11 +79,15 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications,R.id.navigation_game
+                R.id.navigation_home, R.id.navigation_search, R.id.navigation_mylist
             )
         )
         //setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-    }
+*/
+        val navHost = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
+        navController = navHost.navController
+        binding.navView.setupWithNavController(navController)
 
+    }
 }
