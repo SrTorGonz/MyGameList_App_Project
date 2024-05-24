@@ -55,6 +55,9 @@ class ProfileFragment : Fragment() {
 
         pintarNickname(userEmail)
 
+        pintarBio(userEmail)
+
+
         binding.roundedProfileImageView.setOnClickListener {
             AlertDialog.Builder(requireContext())
                 .setTitle("Change profile picture")
@@ -69,6 +72,10 @@ class ProfileFragment : Fragment() {
                 .show()
         }
 
+        binding.textBio.setOnClickListener {
+            showEditBioDialog()
+        }
+
         //ir para atras
         binding.backIconProfile.setOnClickListener {
             findNavController().popBackStack()
@@ -78,6 +85,35 @@ class ProfileFragment : Fragment() {
         }
 
         return root
+    }
+
+    private fun showEditBioDialog() {
+        val builder = AlertDialog.Builder(requireContext())
+        val inflater = layoutInflater
+        val dialogLayout = inflater.inflate(R.layout.dialog_bio_change, null)
+        val editText = dialogLayout.findViewById<EditText>(R.id.editBioEditText)
+
+        builder.setTitle("Edit Bio")
+        builder.setView(dialogLayout)
+        builder.setPositiveButton("Save") { dialog, which ->
+            val newBio = editText.text.toString()
+            updateBioInFirestore(newBio)
+        }
+        builder.setNegativeButton("Cancel", null)
+        builder.show()
+    }
+
+    private fun updateBioInFirestore(newBio: String) {
+        val userEmail = FirebaseAuth.getInstance().currentUser?.email ?: return
+        val userRef = db.collection("users").document(userEmail)
+        userRef.update("bio", newBio)
+            .addOnSuccessListener {
+                binding.textBio.text = newBio
+                Toast.makeText(context, "Bio Updated", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(context, "There was error updating your bio", Toast.LENGTH_SHORT).show()
+            }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -174,6 +210,30 @@ class ProfileFragment : Fragment() {
                 println("Error getting document: ${exception.message}")
             }
     }
+
+    fun pintarBio(userEmail: String){
+
+        var bio: String? = null
+        //recuperar imagen de perfil del usuario
+        db.collection("users").document(userEmail).get()
+            .addOnSuccessListener { document ->
+                if (document != null && document.exists()) {
+                    bio = document.getString("bio")
+                    if (bio != null) {
+                        binding.textBio.text=bio
+                    } else {
+                        println("Profile Pic URL not found")
+                    }
+                } else {
+                    println("No such document")
+                }
+            }
+            .addOnFailureListener { exception ->
+                println("Error getting document: ${exception.message}")
+            }
+    }
+
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

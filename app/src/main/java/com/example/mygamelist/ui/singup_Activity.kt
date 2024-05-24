@@ -61,7 +61,7 @@ class singup_Activity : AppCompatActivity() {
                                 hashMapOf(
                                     "nickname" to nickname_input.text.toString(),
                                     "profile_Pic" to "https://firebasestorage.googleapis.com/v0/b/mygamelist-28430.appspot.com/o/Default_Profile_Pic.png?alt=media&token=5b174c0c-1157-4dc1-a3aa-19272da13db6",
-                                    "bio" to ""
+                                    "bio" to "Tap to edit your bio"
                                 )
                             )
 
