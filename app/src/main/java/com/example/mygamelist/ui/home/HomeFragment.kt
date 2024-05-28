@@ -29,7 +29,7 @@ class HomeFragment : Fragment() {
 
 
 
-    ): View? {
+    ): View {
         val homeViewModel =
             ViewModelProvider(this).get(HomeViewModel::class.java)
 
@@ -38,11 +38,12 @@ class HomeFragment : Fragment() {
 
         //val textViewPrueba = root.findViewById<TextView>(R.id.text_prueba)
         //textViewPrueba.text=email
-
+        /*
         val textView: TextView = binding.textHome
         homeViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
+        */
         return root
     }
 
