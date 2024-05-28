@@ -14,6 +14,10 @@
             android:id="@+id/action_navigation_home_to_profileFragment"
             app:destination="@id/navigation_profile"
             app:popUpTo="@id/navigation_home" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_game"
+            app:destination="@id/navigation_game"
+            app:popUpTo="@id/navigation_home" />
     </fragment>
 
     <fragment
