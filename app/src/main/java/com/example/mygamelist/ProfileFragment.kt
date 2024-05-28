@@ -71,11 +71,15 @@ class ProfileFragment : Fragment() {
                 .setNegativeButton("No", null)
                 .show()
         }
-
+        //detectar click de l usuario en la bio
         binding.textBio.setOnClickListener {
             showEditBioDialog()
         }
 
+        //detectar click del usuario en el icono de editar nickname
+        binding.iconEditNickname.setOnClickListener{
+            showEditNicknameDialog()
+        }
         //ir para atras
         binding.backIconProfile.setOnClickListener {
             findNavController().popBackStack()
@@ -87,6 +91,37 @@ class ProfileFragment : Fragment() {
         return root
     }
 
+    //funciones para editar el nickname
+    private fun showEditNicknameDialog() {
+        val builder = AlertDialog.Builder(requireContext())
+        val inflater = layoutInflater
+        val dialogLayout = inflater.inflate(R.layout.dialog_nickname_change, null)
+        val editText = dialogLayout.findViewById<EditText>(R.id.editNicknameEditText)
+
+        builder.setTitle("Edit Nickname")
+        builder.setView(dialogLayout)
+        builder.setPositiveButton("Save") { dialog, which ->
+            val newNickname = editText.text.toString()
+            updateNicknameInFirestore(newNickname)
+        }
+        builder.setNegativeButton("Cancel", null)
+        builder.show()
+    }
+
+    private fun updateNicknameInFirestore(newNickname: String) {
+        val userEmail = FirebaseAuth.getInstance().currentUser?.email ?: return
+        val userRef = db.collection("users").document(userEmail)
+        userRef.update("nickname", newNickname)
+            .addOnSuccessListener {
+                binding.txtNickname.text = newNickname
+                Toast.makeText(context, "Nickname Updated", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(context, "There was error updating your bio", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+    //funciones para editar la bio
     private fun showEditBioDialog() {
         val builder = AlertDialog.Builder(requireContext())
         val inflater = layoutInflater
