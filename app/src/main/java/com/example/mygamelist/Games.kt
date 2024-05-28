@@ -10,7 +10,9 @@ data class Videojuego(
     val imagenPortada: String, // URL de la imagen de portada
     val fechaLanzamiento: String,
     val plataformas: List<String>,
-    val tags: List<String>
+    val tags: List<String>,
+    val categoria: String,
+    val imagenHorizontal: String
 ): Parcelable
 
 

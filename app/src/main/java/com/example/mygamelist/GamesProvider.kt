@@ -9,7 +9,9 @@ class GamesProvider {
                 "https://images.igdb.com/igdb/image/upload/t_cover_big/co4jni.webp",
                 "February 25, 2022",
                 listOf("PC","Xbox","Playstation"),
-                listOf("Adventure","RPG","Action")
+                listOf("Adventure","RPG","Action"),
+                "A",
+                ""
             ),
             Videojuego(
                 "The Legend of Zelda: Breath of the Wild",
@@ -17,7 +19,10 @@ class GamesProvider {
                 "https://images.igdb.com/igdb/image/upload/t_cover_big/co3p2d.webp",
                 "March 3, 2017",
                 listOf("Nintendo Switch", "Wii U"),
-                listOf("Adventure", "Puzzle","Open World")
+                listOf("Adventure", "Puzzle","Open World"),
+                "A",
+                ""
+
             ),
             Videojuego(
                 "God of War(2018)",
@@ -25,7 +30,10 @@ class GamesProvider {
                 "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tmu.webp",
                 "April 20, 2018",
                 listOf("Playstation", "PC"),
-                listOf("Adventure", "Action", "RPG")
+                listOf("Adventure", "Action", "RPG"),
+                "A",
+                ""
+
             ),
             Videojuego(
                 "Red Dead Redemption 2",
@@ -35,7 +43,10 @@ class GamesProvider {
                 "https://images.igdb.com/igdb/image/upload/t_cover_big/co1q1f.webp",
                 "October 26, 2018",
                 listOf("PC", "Xbox", "Playstation"),
-                listOf("Adventure", "Action","Open World")
+                listOf("Adventure", "Action","Open World"),
+                "A",
+                ""
+
             ),
             Videojuego(
                 "Cyberpunk 2077",
@@ -43,7 +54,10 @@ class GamesProvider {
                 "https://images.igdb.com/igdb/image/upload/t_cover_big/co7497.webp",
                 "December 10, 2020",
                 listOf("PC", "Xbox", "Playstation"),
-                listOf("Adventure", "RPG", "Action")
+                listOf("Adventure", "RPG", "Action"),
+                "A",
+                ""
+
             ),
             Videojuego(
                 "Hollow Knight",
@@ -51,8 +65,51 @@ class GamesProvider {
                 "https://images.igdb.com/igdb/image/upload/t_cover_big/co1rgi.webp",
                 "February 24, 2017",
                 listOf("PC", "Xbox", "Playstation","Nintendo Switch"),
-                listOf("Adventure", "Indie", "Platform")
+                listOf("Adventure", "Indie", "Platform"),
+                "A",
+                ""
+
+            ),
+            Videojuego(
+                "Wuthering Waves",
+                "Welcome to the new world, Rover.\n" +
+                        "This is an age of struggle. Since the Calament a hundred years ago, beings hitherto unknown have taken root in our world, sowing discord and destruction. Civilization as we know it once teetered on the brink of collapse.\n" +
+                        "This is an age of hope. Survivors have buried the hatchet with their kin and enemies, also started to rebuild from the ruins. They find hope in the glories of the bygone days. They erect cities and factories. They sing the praises of restoration.\n" +
+                        "As for you, Rover from the beyond. Whatever might have led to your awakening, we welcome you to these troubled lands. Your journey here will cross with many others'--and will be marked by mysteries and battles.\n" +
+                        "You shall go down as a legend, one that will bring rejuvenation to mankind.",
+                "https://images.igdb.com/igdb/image/upload/t_cover_big/co896o.webp",
+                "May 21, 2024",
+                listOf("PC", "Android", "Playstation","iOS"),
+                listOf("Adventure", "RPG", "Action","Fantasy"),
+                "B",
+                "https://cdn1.epicgames.com/spt-assets/c1586295960b46f88bbfeec32c199e0e/wuthering-waves-uj7dz.jpg?h=270&quality=medium&resize=1&w=480"
+
+            ),
+            Videojuego(
+                "Duck Detective:The Secret Salami",
+                "Solving crime is no walk in the pond. You are a down-on-his-luck detective who also happens to be a duck. Use your powers of de-duck-tion to inspect evidence, fill in the blanks, and bust the case wide open, in a narrative mystery adventure where nothing is quite as it seems.",
+                "https://images.igdb.com/igdb/image/upload/t_cover_big/co7gxl.webp",
+                "May 22, 2024",
+                listOf("PC", "Nintendo Switch"),
+                listOf("Adventure", "Puzzle", "Thriller","Mystery"),
+                "B",
+                "https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1240/b_white/f_auto/q_auto/ncom/software/switch/70010000078227/0686f86757a7ce5ff9bb9eedf40c27389a590bb8426a10aa27c80dbdb90c48ce"
+
+            ),
+            Videojuego(
+                "Hades II",
+                "As the immortal Princess of the Underworld, you'll explore a bigger, deeper mythic world, vanquishing the forces of the Titan of Time with the full might of Olympus behind you, in a sweeping story that continually unfolds through your every setback and accomplishment. New locations, challenges, upgrade systems, and surprises await as you delve into the ever-shifting Underworld again and again.",
+                "https://images.igdb.com/igdb/image/upload/t_cover_big/co888c.webp",
+                "May 5, 2024",
+                listOf("PC"),
+                listOf("Adventure", "Roguelite", "Indie","RPG"),
+                "B",
+                "https://cdn1.epicgames.com/spt-assets/ea0a24395cd641d7bbde3e5d78ad462c/hades-ii-14pcw.png?h=270&quality=medium&resize=1&w=480"
+
             )
+
+
+
 
         )
     }
