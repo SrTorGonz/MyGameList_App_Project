@@ -106,8 +106,29 @@ class GamesProvider {
                 "B",
                 "https://cdn1.epicgames.com/spt-assets/ea0a24395cd641d7bbde3e5d78ad462c/hades-ii-14pcw.png?h=270&quality=medium&resize=1&w=480"
 
-            )
+            ),
+            Videojuego(
+                "Black Myth: Wukong",
+                "Black Myth: Wukong is an action RPG rooted in Chinese mythology. The story is based on Journey to the West, one of the Four Great Classical Novels of Chinese literature. You shall set out as the Destined One to venture into the challenges and marvels ahead, to uncover the obscured truth beneath the veil of a glorious legend from the past.",
+                "https://images.igdb.com/igdb/image/upload/t_cover_big/co7pnk.webp",
+                "August 19, 2024",
+                listOf("PC","Playstation","Xbox"),
+                listOf("Adventure", "RPG", "Action","Fantasy"),
+                "C",
+                ""
 
+            ),
+            Videojuego(
+                "Star Wars Outlaws",
+                "Experience the first-ever open world Star Wars game, set between the events of The Empire Strikes Back and Return of the Jedi. Explore distinct planets across the galaxy, both iconic and new. Risk it all as Kay Vess, an emerging scoundrel seeking freedom and the means to start a new life, along with her companion Nix. Fight, steal, and outwit your way through the galaxy’s crime syndicates as you join the galaxy’s most wanted.",
+                "https://images.igdb.com/igdb/image/upload/t_cover_big/co77oz.webp",
+                "August 29, 2024",
+                listOf("PC","Playstation","Xbox"),
+                listOf("Adventure", "Sciene Fiction", "Action","Star Wars"),
+                "C",
+                ""
+
+            )
 
 
 

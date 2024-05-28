@@ -12,19 +12,22 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mygamelist.CustomItemDecoration
+import com.example.mygamelist.CustomItemDecorationHorizontal
 import com.example.mygamelist.GamesProvider
 import com.example.mygamelist.MainActivity
 import com.example.mygamelist.R
 import com.example.mygamelist.Videojuego
 import com.example.mygamelist.adapter.LatestReleasesAdapter
 import com.example.mygamelist.adapter.SearchAdapter
+import com.example.mygamelist.adapter.UpcomingReleasesAdapter
 import com.example.mygamelist.databinding.FragmentHomeBinding
 import com.example.mygamelist.ui.dashboard.SearchFragmentDirections
 
 class HomeFragment : Fragment() {
 
     private var gameMutableList:MutableList<Videojuego> = GamesProvider.GameList.toMutableList()
-    private lateinit var adapter: LatestReleasesAdapter
+    private lateinit var adapterLatest: LatestReleasesAdapter
+    private lateinit var adapterUpcoming: UpcomingReleasesAdapter
     private var _binding: FragmentHomeBinding? = null
 
     // This property is only valid between onCreateView and
@@ -33,12 +36,9 @@ class HomeFragment : Fragment() {
 
     override fun onCreateView(
 
-
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-
-
 
     ): View {
         val homeViewModel =
@@ -57,13 +57,15 @@ class HomeFragment : Fragment() {
         */
 
         //iniciar el recyclerview
-        initRecyclerView()
+        initRecyclerViewLatest()
+        initRecyclerViewUpcoming()
+
         return root
     }
 
     //funcion que inicializa el recyclerview
-    private fun initRecyclerView(){
-        adapter = LatestReleasesAdapter(gameMutableList.filter { videojuego ->videojuego.categoria.equals("B")  }){videojuego ->
+    private fun initRecyclerViewLatest(){
+        adapterLatest = LatestReleasesAdapter(gameMutableList.filter { videojuego ->videojuego.categoria.equals("B")  }){videojuego ->
             onItemSelected(
                 videojuego
             )
@@ -71,7 +73,7 @@ class HomeFragment : Fragment() {
 
         val manager = GridLayoutManager(requireContext(),3)
         binding.recyclerLatestReleases.layoutManager=manager
-        binding.recyclerLatestReleases.adapter = adapter
+        binding.recyclerLatestReleases.adapter = adapterLatest
 
         //añadir separacion entre items
         val spaceHeight = resources.getDimensionPixelSize(R.dimen.recycler_view_item_space)
@@ -79,7 +81,24 @@ class HomeFragment : Fragment() {
         binding.recyclerLatestReleases.addItemDecoration(customItemDecoration)
 
     }
+    //funcion que inicializa el recyclerview de proximos lanzamientos
+    private fun initRecyclerViewUpcoming(){
+        adapterUpcoming = UpcomingReleasesAdapter(gameMutableList.filter { videojuego ->videojuego.categoria.equals("C")  }){videojuego ->
+            onItemSelected(
+                videojuego
+            )
+        }
 
+        val manager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
+        binding.recyclerUpcomingReleases.layoutManager=manager
+        binding.recyclerUpcomingReleases.adapter = adapterUpcoming
+
+        //añadir separacion entre items
+        val spaceHeight = resources.getDimensionPixelSize(R.dimen.recycler_view_item_space)
+        val customItemDecoration = CustomItemDecorationHorizontal(spaceHeight)
+        binding.recyclerUpcomingReleases.addItemDecoration(customItemDecoration)
+
+    }
     fun onItemSelected(videojuego: Videojuego){
 
         val action = HomeFragmentDirections.actionNavigationHomeToNavigationGame(videojuego)
