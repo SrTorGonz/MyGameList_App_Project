@@ -39,10 +39,10 @@
                 android:layout_height="wrap_content"
                 android:text="Best Scores"
                 android:textColor="@color/white"
-                android:textSize="18sp"
+                android:textSize="25sp"
                 android:textStyle="bold"
                 android:layout_marginTop="20dp"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="15dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
 
@@ -50,7 +50,7 @@
                 android:id="@+id/recyclerScores"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="10dp"
                 app:layout_constraintTop_toBottomOf="@id/txt_titleScore"
                 app:layout_constraintStart_toStartOf="parent"/>
@@ -61,10 +61,10 @@
                 android:layout_height="wrap_content"
                 android:text="Latest Releases"
                 android:textColor="@color/white"
-                android:textSize="18sp"
+                android:textSize="25sp"
                 android:textStyle="bold"
                 android:layout_marginTop="20dp"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="15dp"
                 app:layout_constraintTop_toBottomOf="@id/recyclerScores"
                 app:layout_constraintStart_toStartOf="parent" />
 
@@ -72,8 +72,9 @@
                 android:id="@+id/recyclerLatestReleases"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginHorizontal="30dp"
+                android:foregroundGravity="center"
+                android:layout_marginTop="5dp"
+                android:layout_marginHorizontal="15dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/txt_latestReleases"/>
@@ -84,10 +85,10 @@
                 android:layout_height="wrap_content"
                 android:text="Upcoming Releases"
                 android:textColor="@color/white"
-                android:textSize="18sp"
+                android:textSize="25sp"
                 android:textStyle="bold"
                 android:layout_marginTop="5dp"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="15dp"
                 app:layout_constraintTop_toBottomOf="@id/recyclerLatestReleases"
                 app:layout_constraintStart_toStartOf="parent" />
 
@@ -96,7 +97,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="15dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/txt_UpcomingReleases"/>

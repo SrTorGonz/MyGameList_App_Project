@@ -1,5 +1,6 @@
 package com.example.mygamelist.ui.home
 
+import GridSpacingItemDecoration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -93,14 +94,15 @@ class HomeFragment : Fragment() {
             )
         }
 
-        val manager = GridLayoutManager(requireContext(),3)
+        val manager = GridLayoutManager(requireContext(),2)
         binding.recyclerLatestReleases.layoutManager=manager
         binding.recyclerLatestReleases.adapter = adapterLatest
 
         //añadir separacion entre items
-        val spaceHeight = resources.getDimensionPixelSize(R.dimen.recycler_view_item_space)
+
+       val spaceHeight = resources.getDimensionPixelSize(R.dimen.recycler_view_item_space)
         val customItemDecoration = CustomItemDecoration(spaceHeight)
-        binding.recyclerLatestReleases.addItemDecoration(customItemDecoration)
+       binding.recyclerLatestReleases.addItemDecoration(customItemDecoration)
 
     }
     //funcion que inicializa el recyclerview de proximos lanzamientos
