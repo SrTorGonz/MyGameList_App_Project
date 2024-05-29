@@ -30,28 +30,30 @@
             android:textStyle ="bold"
             android:textColor="@color/white"
             android:layout_marginTop="5dp"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="15dp"
             tools:text="nombre del jueguito"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@id/img_portada"/>
+            app:layout_constraintStart_toEndOf="@id/img_portada"
+            app:layout_constraintBottom_toTopOf="@id/text_title_synopsis"/>
 
         <TextView
             android:id="@+id/text_title_synopsis"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="5dp"
             android:text="synopsis"
             android:textColor="@color/white"
             android:textSize="11sp"
             app:layout_constraintStart_toEndOf="@id/img_portada"
-            app:layout_constraintTop_toBottomOf="@id/text_Name" />
+            app:layout_constraintTop_toBottomOf="@id/text_Name"
+            app:layout_constraintBottom_toTopOf="@id/text_synopsis"/>
 
         <me.biubiubiu.justifytext.library.JustifyTextView
             android:id="@+id/text_synopsis"
-            android:layout_width="185dp"
+            android:layout_width="170dp"
             android:layout_height="90dp"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="8dp"
             android:maxLines="6"
