@@ -108,6 +108,43 @@ class GamesProvider {
 
             ),
             Videojuego(
+                "Paper Mario: The Thousand-Year Door",
+                "A remake of the second game in the Paper Mario series, originally released for the Nintendo GameCube.\n" +
+                        "\n" +
+                        "Turn the page and join Mario and friends in an RPG adventure to discover the legendary treasure behind the ancient Thousand-Year Door. Will Mario complete his papery quest, or will he crumple under the pressure?",
+                "https://images.igdb.com/igdb/image/upload/t_cover_big/co83vd.webp",
+                "May 25, 2024",
+                listOf("Nintendo Switch"),
+                listOf("Action", "Fantasy", "RPG"),
+                "B",
+                "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/ncom/software/switch/70010000072957/fdd5d8ca46d7ea4e45397ae560e807742de2d7d744570297ddbabf69d6d23f33"
+
+            ),
+            Videojuego(
+                "XDefiant",
+                "Ubisoft's worlds collide in a free-to-play, first-person arena shooter where you compete to be the best in fast-paced online matches!\n" +
+                        "\n" +
+                        "Join an always-evolving experience with regular updates bringing new playable factions and a growing collection of maps, weapons, and game modes. With cross-play, you will be able to join your friends across available platforms.",
+                "https://images.igdb.com/igdb/image/upload/t_cover_big/co6dta.webp",
+                "May 20, 2024",
+                listOf("Nintendo Switch"),
+                listOf("Action", "Multiplayer", "Shooter","First Person"),
+                "B",
+                "https://cdn.oneesports.gg/cdn-data/2023/06/xdefiant_ubisoft.jpg"
+
+            ),
+            Videojuego(
+                "Senua's Saga: Hellblade II",
+                "The sequel to the award winning Hellblade: Senua’s Sacrifice, Senua returns in a brutal journey of survival through the myth and torment of Viking Iceland. Intent on saving those who have fallen victim to the horrors of tyranny, Senua faces a battle of overcoming the darkness within and without",
+                "https://images.igdb.com/igdb/image/upload/t_cover_big/co81i4.webp",
+                "May 20, 2024",
+                listOf("Xbox","Pc"),
+                listOf("Action", "Fantasy", "Shooter","Horror"),
+                "B",
+                "https://www.mundodeportivo.com/alfabeta/hero/2024/01/captura.1705609624.5228.jpg?width=768&aspect_ratio=16:9&format=nowebp"
+
+            ),
+            Videojuego(
                 "Black Myth: Wukong",
                 "Black Myth: Wukong is an action RPG rooted in Chinese mythology. The story is based on Journey to the West, one of the Four Great Classical Novels of Chinese literature. You shall set out as the Destined One to venture into the challenges and marvels ahead, to uncover the obscured truth beneath the veil of a glorious legend from the past.",
                 "https://images.igdb.com/igdb/image/upload/t_cover_big/co7pnk.webp",
@@ -129,7 +166,6 @@ class GamesProvider {
                 ""
 
             )
-
 
 
         )

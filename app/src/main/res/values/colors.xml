@@ -15,6 +15,7 @@
     <color name="moradoNavegacion">#282D4B</color>
     <color name="morado_busqueda">#19215A</color>
     <color name="morado_interfaz">#242844</color>
+    <color name="morado_boton">#6F2DC3</color>
 
 
 </resources>
