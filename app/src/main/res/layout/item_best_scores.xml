@@ -35,34 +35,30 @@
             app:layout_constraintStart_toStartOf="parent"
             />
 
-        <TextView
-            android:id="@+id/text_Fecha"
-            android:layout_width="108dp"
+
+        <ImageView
+            android:id="@+id/iconTrophy"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="9sp"
-
-            android:textColor="@color/white"
-
+            android:src="@drawable/icon_trophy"
             android:layout_marginTop="5dp"
-            tools:text="fecha"
-            tools:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@id/text_Name"
-            app:layout_constraintStart_toStartOf="parent"
-            />
+            app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
-            android:layout_width="108dp"
+            android:id="@+id/text_Score"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="9sp"
-
-            android:textColor="@color/white"
-
+            android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
-            tools:text="fecha"
-            tools:textColor="@color/black"
-            app:layout_constraintTop_toBottomOf="@id/text_Fecha"
-            app:layout_constraintStart_toStartOf="parent"
-            />
+            android:text="10"
+            android:textColor="@color/white"
+            android:textSize="9sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iconTrophy"
+            app:layout_constraintTop_toBottomOf="@id/text_Name"
+            app:layout_goneMarginTop="10dp"
+            tools:textColor="@color/black" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

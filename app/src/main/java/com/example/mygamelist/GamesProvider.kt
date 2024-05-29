@@ -165,8 +165,29 @@ class GamesProvider {
                 "C",
                 ""
 
-            )
+            ),
+            Videojuego(
+                "Assassin's Creed Shadows",
+                "Experience an epic historical action-adventure story set in feudal Japan! Become a lethal shinobi Assassin and a powerful legendary samurai as you explore a beautiful open world in a time of chaos. Switch seamlessly between two unlikely allies as you discover their common destiny. Master complementary playstyles, create your shinobi league, customize your hideout, and usher in a new era for Japan.",
+                "https://images.igdb.com/igdb/image/upload/t_cover_big/co87cu.webp",
+                "November 14, 2024",
+                listOf("PC","Playstation","Xbox"),
+                listOf("Adventure", "RPG", "Action","Historical"),
+                "C",
+                ""
 
+            ),
+            Videojuego(
+                "World of Goo 2",
+                "Use living liquid creatures to build bridges, grow towers, terraform terrain, and fuel flying machines. The world is beautiful, dangerous, and evolving.",
+                "https://images.igdb.com/igdb/image/upload/t_cover_big/co7h9z.webp",
+                "August 1, 2024",
+                listOf("PC","Nintendo Switch"),
+                listOf("Indie", "Puzzle", "Simulator","Strategy"),
+                "C",
+                ""
+
+            )
 
         )
     }

@@ -17,6 +17,7 @@ import com.example.mygamelist.GamesProvider
 import com.example.mygamelist.MainActivity
 import com.example.mygamelist.R
 import com.example.mygamelist.Videojuego
+import com.example.mygamelist.adapter.BestScoresAdapter
 import com.example.mygamelist.adapter.LatestReleasesAdapter
 import com.example.mygamelist.adapter.SearchAdapter
 import com.example.mygamelist.adapter.UpcomingReleasesAdapter
@@ -28,6 +29,7 @@ class HomeFragment : Fragment() {
     private var gameMutableList:MutableList<Videojuego> = GamesProvider.GameList.toMutableList()
     private lateinit var adapterLatest: LatestReleasesAdapter
     private lateinit var adapterUpcoming: UpcomingReleasesAdapter
+    private lateinit var adapterBest: BestScoresAdapter
     private var _binding: FragmentHomeBinding? = null
 
     // This property is only valid between onCreateView and
@@ -57,13 +59,33 @@ class HomeFragment : Fragment() {
         */
 
         //iniciar el recyclerview
+        initRecyclerViewBest()
         initRecyclerViewLatest()
         initRecyclerViewUpcoming()
 
         return root
     }
 
-    //funcion que inicializa el recyclerview
+    //funcion que inicializa el recyclerview mejores puntuados
+    private fun initRecyclerViewBest(){
+        adapterBest = BestScoresAdapter(gameMutableList.filter { videojuego ->videojuego.categoria.equals("A")  }){videojuego ->
+            onItemSelected(
+                videojuego
+            )
+        }
+
+        val manager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
+        binding.recyclerScores.layoutManager=manager
+        binding.recyclerScores.adapter = adapterBest
+
+        //añadir separacion entre items
+        val spaceHeight = resources.getDimensionPixelSize(R.dimen.recycler_view_item_space)
+        val customItemDecoration = CustomItemDecorationHorizontal(spaceHeight)
+        binding.recyclerScores.addItemDecoration(customItemDecoration)
+
+    }
+
+    //funcion que inicializa el recyclerview ultimos lanzamientos
     private fun initRecyclerViewLatest(){
         adapterLatest = LatestReleasesAdapter(gameMutableList.filter { videojuego ->videojuego.categoria.equals("B")  }){videojuego ->
             onItemSelected(

@@ -45,11 +45,10 @@
         android:layout_height="33dp"
         android:layout_marginEnd="25dp"
 
-        app:shapeAppearanceOverlay="@style/circular"
         app:layout_constraintBottom_toBottomOf="@+id/top_bar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/top_bar"
-        />
+        app:layout_constraintTop_toTopOf="@id/top_bar"
+        app:shapeAppearanceOverlay="@style/circular" />
 
     <!--MyGameList icon-->
 
@@ -62,7 +61,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/top_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/top_bar" />
+        app:layout_constraintTop_toTopOf="@id/top_bar" />
 
     <!--Fragment barra inferior-->
     <fragment
