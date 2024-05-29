@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CustomAlertDialog" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="colorAccent">@color/morado_boton</item> <!-- Cambia el color de los botones -->
+        <item name="android:background">#303030</item> <!-- Fondo del diálogo -->
+        <item name="android:textColorPrimary">@color/white</item> <!-- Color del texto principal -->
+        <item name="android:windowBackground">@color/background</item> <!-- Fondo de la ventana -->
+    </style>
+</resources>

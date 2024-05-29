@@ -12,7 +12,10 @@ data class Videojuego(
     val plataformas: List<String>,
     val tags: List<String>,
     val categoria: String,
-    val imagenHorizontal: String
+    val imagenHorizontal: String,
+    val ratingP: Int = 0,
+    val comment: String ="",
+    val ratingG: Double = 0.0
 ): Parcelable
 
 
