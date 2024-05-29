@@ -29,38 +29,45 @@
             android:textSize="20sp"
             android:textStyle ="bold"
             android:textColor="@color/white"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:layout_marginStart="15dp"
             tools:text="nombre del jueguito"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@id/img_portada"
-            app:layout_constraintBottom_toTopOf="@id/text_userScore"/>
+            app:layout_constraintStart_toEndOf="@id/img_portada" />
 
+        <ImageView
+            android:id="@+id/iconstar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/icon_star"
+            app:layout_constraintEnd_toStartOf="@+id/text_userScore"
+            app:layout_constraintStart_toEndOf="@+id/img_portada"
+            app:layout_constraintTop_toBottomOf="@+id/text_gameName" />
         <TextView
             android:id="@+id/text_userScore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
             android:text="synopsis"
             android:textColor="@color/white"
-            android:textSize="11sp"
-            app:layout_constraintStart_toEndOf="@id/img_portada"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@id/iconstar"
             app:layout_constraintTop_toBottomOf="@id/text_gameName"
-            app:layout_constraintBottom_toTopOf="@id/text_review"/>
+       />
 
-        <me.biubiubiu.justifytext.library.JustifyTextView
+        <TextView
             android:id="@+id/text_review"
             android:layout_width="170dp"
-            android:layout_height="90dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="8dp"
-            android:maxLines="6"
+            android:maxLines="4"
             android:textColor="@color/gris_claro"
-            android:textSize="11sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="14sp"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@id/img_portada"
             app:layout_constraintTop_toBottomOf="@id/text_userScore"

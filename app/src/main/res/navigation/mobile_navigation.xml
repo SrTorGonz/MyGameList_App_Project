@@ -45,6 +45,10 @@
             android:id="@+id/action_navigation_mylist_to_navigation_profile"
             app:destination="@id/navigation_profile"
             app:popUpTo="@id/navigation_mylist" />
+        <action
+            android:id="@+id/action_navigation_mylist_to_completedFragment"
+            app:destination="@id/navigation_completed"
+            app:popUpTo="@id/navigation_mylist" />
     </fragment>
 
     <fragment
@@ -65,5 +69,15 @@
         android:id="@+id/navigation_profile"
         android:name="com.example.mygamelist.ProfileFragment"
         android:label="ProfileFragment" />
+
+    <fragment
+        android:id="@+id/navigation_completed"
+        android:name="com.example.mygamelist.ui.notifications.CompletedFragment"
+        android:label="CompletedFragment" >
+        <action
+            android:id="@+id/action_navigation_completed_to_navigation_mylist"
+            app:destination="@id/navigation_mylist"
+            app:popUpTo="@id/navigation_completed" />
+    </fragment>
 
 </navigation>
