@@ -21,6 +21,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class GameFragment : Fragment() {
 
+    private var gameMutableList:MutableList<Videojuego> = GamesProvider.GameList.toMutableList()
     private var _binding: FragmentGameBinding? = null
 
     // This property is only valid between onCreateView and
@@ -233,6 +234,7 @@ class GameFragment : Fragment() {
             ratingP = puntuacionP,
             comment = reviewP
         )
+
         saveList(updatedGame,categoriaP)
     }
 
