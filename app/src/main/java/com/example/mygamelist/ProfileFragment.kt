@@ -14,17 +14,26 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.mygamelist.MainActivity
 import com.example.mygamelist.R
+import com.example.mygamelist.adapter.FavoritesAdapter
+import com.example.mygamelist.adapter.PlayingAdapter
 import com.example.mygamelist.databinding.FragmentHomeBinding
 import com.example.mygamelist.databinding.FragmentProfileBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentChange
+import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FirebaseFirestoreException
+import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.storage.FirebaseStorage
 
 class ProfileFragment : Fragment() {
 
+    private lateinit var gameArrayList:ArrayList<GamesFirebase>
+    private lateinit var myAdapter: FavoritesAdapter
     private val db = FirebaseFirestore.getInstance()
 
     private var _binding: FragmentProfileBinding? = null
@@ -80,13 +89,8 @@ class ProfileFragment : Fragment() {
         binding.iconEditNickname.setOnClickListener{
             showEditNicknameDialog()
         }
-        //ir para atras
-        binding.backIconProfile.setOnClickListener {
-            findNavController().popBackStack()
-        }
-        binding.txtBackProfile.setOnClickListener {
-            findNavController().popBackStack()
-        }
+
+
 
 
         // Llama a la función para contar los documentos y actualizar los TextViews
@@ -103,12 +107,60 @@ class ProfileFragment : Fragment() {
             binding.txtNumWishlist.text = "$count"
         }
 
+        //recycler
+        binding.recyclerFavs.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+        binding.recyclerFavs.setHasFixedSize(true)
+
+        //añadir separacion entre items
+        val spaceHeight = resources.getDimensionPixelSize(R.dimen.recycler_view_item_space)
+        val customItemDecoration = CustomItemDecorationHorizontal(spaceHeight)
+        binding.recyclerFavs.addItemDecoration(customItemDecoration)
+
+        gameArrayList = arrayListOf()
+
+        myAdapter = FavoritesAdapter(gameArrayList)
+        binding.recyclerFavs.adapter = myAdapter
+
+        eventChangeListener()
+
+        //ir para atras
+        binding.backIconProfile.setOnClickListener {
+            findNavController().popBackStack()
+        }
+        binding.txtBackProfile.setOnClickListener {
+            findNavController().popBackStack()
+        }
 
 
         return root
     }
 
+    private fun eventChangeListener()
+    {
+        val userEmail = FirebaseAuth.getInstance().currentUser?.email ?: return
+        db.collection("users").document(userEmail).collection("Favorites")
+            .addSnapshotListener(object : EventListener<QuerySnapshot> {
+                override fun onEvent(
+                    value: QuerySnapshot?,
+                    error: FirebaseFirestoreException?
+                ) {
+                    if (error !=null){
+                        Toast.makeText(requireContext(), "Nothing to show", Toast.LENGTH_SHORT).show()
+                        return
+                    }
 
+                    for(dc: DocumentChange in value?.documentChanges!!){
+
+                        if (dc.type== DocumentChange.Type.ADDED){
+                            gameArrayList.add(dc.document.toObject(GamesFirebase::class.java))
+                        }
+                    }
+
+                    myAdapter.notifyDataSetChanged()
+                }
+
+            })
+    }
     private fun countDocumentsInCollection(collectionName: String, callback: (Int) -> Unit) {
 
         val userEmail = FirebaseAuth.getInstance().currentUser?.email ?: return

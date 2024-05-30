@@ -102,7 +102,12 @@ class GameFragment : Fragment() {
 
 
         binding.buttonAddGame.setOnClickListener{
-            showEditNicknameDialog()
+            showAddToListDialog()
+        }
+
+        binding.buttonAddFavorites.setOnClickListener{
+            val updatedGame = args.videojuego
+            saveFav(updatedGame,"Favorites")
         }
 
         //ir para atras
@@ -115,8 +120,8 @@ class GameFragment : Fragment() {
 
         return root
     }
-    //funciones para editar el nickname
-    private fun showEditNicknameDialog() {
+    //funciones para agregar juego a lista
+    private fun showAddToListDialog() {
         var puntuacion = 0
         var categoria = ""
         var comentario = ""
@@ -232,6 +237,23 @@ class GameFragment : Fragment() {
     }
 
     private fun saveList(game: Videojuego,categoriaP: String) {
+        val db = FirebaseFirestore.getInstance()
+        val userEmail = FirebaseAuth.getInstance().currentUser?.email ?: return
+
+        db.collection("users").document(userEmail)
+            .collection(categoriaP)
+            .document(game.nombre)
+            .set(game)
+            .addOnSuccessListener {
+                Toast.makeText(requireContext(), "Game saved!", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener {
+                Toast.makeText(requireContext(), "Error saving game", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+
+    private fun saveFav(game: Videojuego,categoriaP: String) {
         val db = FirebaseFirestore.getInstance()
         val userEmail = FirebaseAuth.getInstance().currentUser?.email ?: return
 
