@@ -88,7 +88,40 @@ class ProfileFragment : Fragment() {
             findNavController().popBackStack()
         }
 
+
+        // Llama a la función para contar los documentos y actualizar los TextViews
+        countDocumentsInCollection("Playing") { count ->
+            binding.txtNumPlaying.text = "$count"
+        }
+        countDocumentsInCollection("Completed") { count ->
+            binding.txtNumCompleted.text = "$count"
+        }
+        countDocumentsInCollection("Dropped") { count ->
+            binding.txtNumDropped.text = "$count"
+        }
+        countDocumentsInCollection("WishList") { count ->
+            binding.txtNumWishlist.text = "$count"
+        }
+
+
+
         return root
+    }
+
+
+    private fun countDocumentsInCollection(collectionName: String, callback: (Int) -> Unit) {
+
+        val userEmail = FirebaseAuth.getInstance().currentUser?.email ?: return
+        db.collection("users").document(userEmail).collection(collectionName).get()
+            .addOnSuccessListener { documents ->
+                val count = documents.size()
+                // Llama al callback con el conteo
+                callback(count)
+            }
+            .addOnFailureListener { exception ->
+                // Maneja el error y llama al callback con 0
+                callback(0)
+            }
     }
 
     //funciones para editar el nickname
