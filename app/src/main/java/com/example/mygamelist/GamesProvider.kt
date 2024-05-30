@@ -187,8 +187,67 @@ class GamesProvider {
                 "C",
                 ""
 
+            ),
+            Videojuego(
+                "The Witcher 3: Wild Hunt",
+                "RPG and sequel to The Witcher 2 (2011), The Witcher 3 follows witcher Geralt of Rivia as he seeks out his former lover and his young subject while intermingling with the political workings of the wartorn Northern Kingdoms. Geralt has to fight monsters and deal with people of all sorts in order to solve complex problems and settle contentious disputes, each ranging from the personal to the world-changing.",
+                "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.webp",
+                "May 18, 2015",
+                listOf("Xbox","Pc","Playstation","Nintendo Switch"),
+                listOf("Action", "Fantasy", "Open World","RPG"),
+                "A",
+                ""
+
+            ),
+            Videojuego(
+                "Minecraft",
+                "Minecraft focuses on allowing the player to explore, interact with, and modify a dynamically-generated map made of one-cubic-meter-sized blocks. In addition to blocks, the environment features plants, mobs, and items. Some activities in the game include mining for ore, fighting hostile mobs, and crafting new blocks and tools by gathering various resources found in the game. The game's open-ended model allows players to create structures, creations, and artwork on various multiplayer servers or their single-player maps. Other features include redstone circuits for logic computations and remote actions, minecarts and tracks, and a mysterious underworld called the Nether. A designated but completely optional goal of the game is to travel to a dimension called the End, and defeat the ender dragon.",
+                "https://images.igdb.com/igdb/image/upload/t_cover_big/co49x5.webp",
+                "November 17, 2011",
+                listOf("Pc","xbox","android"),
+                listOf("Simulator", "Adventure", "Kids","Open World"),
+                "A",
+                ""
+
+            ),
+            Videojuego(
+                "Dead Cells",
+                "Dead Cells is a rogue-lite, metroidvania inspired, action-platformer. You'll explore a sprawling, ever-changing castle... assuming you’re able to fight your way past its keepers in 2D souls-lite combat. No checkpoints. Kill, die, learn, repeat.",
+                "https://images.igdb.com/igdb/image/upload/t_cover_big/co7jfv.webp",
+                "August 5, 2018",
+                listOf("Pc","xbox","android","Playstation"),
+                listOf("Platform", "Adventure", "Indie","Open World"),
+                "A",
+                ""
+
+            ),
+            Videojuego(
+                "Grand Theft Auto V",
+                "Grand Theft Auto V is a vast open world game set in Los Santos, a sprawling sun-soaked metropolis struggling to stay afloat in an era of economic uncertainty and cheap reality TV. The game blends storytelling and gameplay in new ways as players repeatedly jump in and out of the lives of the game’s three lead characters, playing all sides of the game’s interwoven story.",
+                "https://images.igdb.com/igdb/image/upload/t_cover_big/co2lbd.webp",
+                "September 16, 2013",
+                listOf("Pc","xbox","Playstation"),
+                listOf("Shooter", "Racing", "Sandbox","Open World"),
+                "A",
+                ""
+
+            ),
+            Videojuego(
+                "Sekiro: Shadows Die Twice",
+                "Enter a dark and brutal new gameplay experience from the creators of Bloodborne and the Dark Souls series. Sekiro: Shadows Die Twice is an intense, third-person, action-adventure set against the bloody backdrop of 14th-century Japan. Step into the role of a disgraced warrior brought back from the brink of death whose mission is to rescue his master and exact revenge on his arch nemesis.\n" +
+                        "\n" +
+                        "Take Revenge. Restore Your Honor. Kill Ingeniously",
+                "https://images.igdb.com/igdb/image/upload/t_cover_big/co2a23.webp",
+                "March 21, 2019",
+                listOf("Pc","xbox","Playstation"),
+                listOf("Action", "Souls", "Historical","Adventure"),
+                "A",
+                ""
+
             )
 
+
         )
+
     }
 }
