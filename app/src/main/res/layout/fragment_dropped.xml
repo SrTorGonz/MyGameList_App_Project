@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".ProfileFragment">
+
+    <ImageView
+        android:id="@+id/topHolder"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/moradoNavegacion"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/titlePlaying"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Playing"
+        android:textSize="14sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="@id/topHolder"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/titleCompleted"
+        app:layout_constraintBottom_toBottomOf="@id/topHolder"/>
+
+    <TextView
+        android:id="@+id/titleCompleted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Completed"
+
+        android:textSize="14sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="@id/topHolder"
+        app:layout_constraintStart_toEndOf="@id/titlePlaying"
+        app:layout_constraintEnd_toStartOf="@id/titleDropped"
+        app:layout_constraintBottom_toBottomOf="@id/topHolder"/>
+
+    <TextView
+        android:id="@+id/titleDropped"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dropped"
+        android:textSize="14sp"
+        android:textColor="@color/azul"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@id/topHolder"
+        app:layout_constraintStart_toEndOf="@id/titleCompleted"
+        app:layout_constraintEnd_toStartOf="@id/titleWishlist"
+        app:layout_constraintBottom_toBottomOf="@id/topHolder"/>
+
+    <TextView
+        android:id="@+id/titleWishlist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wishlist"
+        android:textSize="14sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="@id/topHolder"
+        app:layout_constraintStart_toEndOf="@id/titleDropped"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/topHolder"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerPlaying"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/topHolder"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

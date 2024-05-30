@@ -40,8 +40,6 @@ class SearchFragment : Fragment() {
         savedInstanceState: Bundle?
 
     ): View {
-        val searchViewModel =
-            ViewModelProvider(this).get(SearchViewModel::class.java)
 
         _binding = FragmentSearchBinding.inflate(inflater, container, false)
         val root: View = binding.root

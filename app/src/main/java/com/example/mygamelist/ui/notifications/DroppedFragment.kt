@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mygamelist.GamesFirebase
 import com.example.mygamelist.adapter.PlayingAdapter
 import com.example.mygamelist.databinding.FragmentCompletedBinding
+import com.example.mygamelist.databinding.FragmentDroppedBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.EventListener
@@ -18,13 +19,13 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.QuerySnapshot
 
-class CompletedFragment : Fragment() {
+class DroppedFragment : Fragment() {
 
     private lateinit var gameArrayList:ArrayList<GamesFirebase>
     private lateinit var myAdapter: PlayingAdapter
     private lateinit var db: FirebaseFirestore
 
-    private var _binding: FragmentCompletedBinding? = null
+    private var _binding: FragmentDroppedBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -36,13 +37,19 @@ class CompletedFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentCompletedBinding.inflate(inflater, container, false)
+        _binding = FragmentDroppedBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         binding.titlePlaying.setOnClickListener{
-            val action = CompletedFragmentDirections.actionNavigationCompletedToNavigationMylist()
+            val action = DroppedFragmentDirections.actionNavigationDroppedToNavigationMylist()
             findNavController().navigate(action)
         }
+
+        binding.titleCompleted.setOnClickListener{
+            val action = DroppedFragmentDirections.actionNavigationDroppedToNavigationCompleted()
+            findNavController().navigate(action)
+        }
+
 
         binding.recyclerPlaying.layoutManager = LinearLayoutManager(context)
         binding.recyclerPlaying.setHasFixedSize(true)
@@ -61,7 +68,7 @@ class CompletedFragment : Fragment() {
     {
         db=FirebaseFirestore.getInstance()
         val userEmail = FirebaseAuth.getInstance().currentUser?.email ?: return
-        db.collection("users").document(userEmail).collection("Completed")
+        db.collection("users").document(userEmail).collection("Dropped")
             .addSnapshotListener(object :EventListener<QuerySnapshot>{
                 override fun onEvent(
                     value: QuerySnapshot?,

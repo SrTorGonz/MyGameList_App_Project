@@ -49,6 +49,10 @@
             android:id="@+id/action_navigation_mylist_to_completedFragment"
             app:destination="@id/navigation_completed"
             app:popUpTo="@id/navigation_mylist" />
+        <action
+            android:id="@+id/action_navigation_mylist_to_navigation_dropped"
+            app:destination="@id/navigation_dropped"
+            app:popUpTo="@id/navigation_mylist" />
     </fragment>
 
     <fragment
@@ -78,6 +82,23 @@
             android:id="@+id/action_navigation_completed_to_navigation_mylist"
             app:destination="@id/navigation_mylist"
             app:popUpTo="@id/navigation_completed" />
+        <action
+            android:id="@+id/action_navigation_completed_to_navigation_dropped"
+            app:destination="@id/navigation_dropped"
+            app:popUpTo="@id/navigation_completed" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_dropped"
+        android:name="com.example.mygamelist.ui.notifications.DroppedFragment"
+        android:label="DroppedFragment" >
+        <action
+            android:id="@+id/action_navigation_dropped_to_navigation_mylist"
+            app:destination="@id/navigation_mylist"
+            app:popUpTo="@id/navigation_dropped" />
+        <action
+            android:id="@+id/action_navigation_dropped_to_navigation_completed"
+            app:destination="@id/navigation_completed"
+            app:popUpTo="@id/navigation_dropped" />
     </fragment>
 
 </navigation>
