@@ -48,6 +48,10 @@ class CompletedFragment : Fragment() {
             val action = CompletedFragmentDirections.actionNavigationCompletedToNavigationDropped()
             findNavController().navigate(action)
         }
+        binding.titleWishlist.setOnClickListener{
+            val action = CompletedFragmentDirections.actionNavigationCompletedToNavigationWishlist()
+            findNavController().navigate(action)
+        }
 
         binding.recyclerPlaying.layoutManager = LinearLayoutManager(context)
         binding.recyclerPlaying.setHasFixedSize(true)

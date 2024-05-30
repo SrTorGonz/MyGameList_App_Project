@@ -53,6 +53,10 @@
             android:id="@+id/action_navigation_mylist_to_navigation_dropped"
             app:destination="@id/navigation_dropped"
             app:popUpTo="@id/navigation_mylist" />
+        <action
+            android:id="@+id/action_navigation_mylist_to_navigation_wishlist"
+            app:destination="@id/navigation_wishlist"
+            app:popUpTo="@id/navigation_mylist" />
     </fragment>
 
     <fragment
@@ -86,6 +90,10 @@
             android:id="@+id/action_navigation_completed_to_navigation_dropped"
             app:destination="@id/navigation_dropped"
             app:popUpTo="@id/navigation_completed" />
+        <action
+            android:id="@+id/action_navigation_completed_to_navigation_wishlist"
+            app:destination="@id/navigation_wishlist"
+            app:popUpTo="@id/navigation_completed" />
     </fragment>
     <fragment
         android:id="@+id/navigation_dropped"
@@ -99,6 +107,27 @@
             android:id="@+id/action_navigation_dropped_to_navigation_completed"
             app:destination="@id/navigation_completed"
             app:popUpTo="@id/navigation_dropped" />
+        <action
+            android:id="@+id/action_navigation_dropped_to_navigation_wishlist"
+            app:destination="@id/navigation_wishlist"
+            app:popUpTo="@id/navigation_dropped" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_wishlist"
+        android:name="com.example.mygamelist.ui.notifications.WishlistFragment"
+        android:label="WishlistFragment" >
+        <action
+            android:id="@+id/action_navigation_wishlist_to_navigation_mylist"
+            app:destination="@id/navigation_mylist"
+            app:popUpTo="@id/navigation_wishlist" />
+        <action
+            android:id="@+id/action_navigation_wishlist_to_navigation_completed"
+            app:destination="@id/navigation_completed"
+            app:popUpTo="@id/navigation_wishlist" />
+        <action
+            android:id="@+id/action_navigation_wishlist_to_navigation_dropped"
+            app:destination="@id/navigation_dropped"
+            app:popUpTo="@id/navigation_wishlist" />
     </fragment>
 
 </navigation>

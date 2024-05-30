@@ -49,6 +49,10 @@ class DroppedFragment : Fragment() {
             val action = DroppedFragmentDirections.actionNavigationDroppedToNavigationCompleted()
             findNavController().navigate(action)
         }
+        binding.titleWishlist.setOnClickListener{
+            val action = DroppedFragmentDirections.actionNavigationDroppedToNavigationWishlist()
+            findNavController().navigate(action)
+        }
 
 
         binding.recyclerPlaying.layoutManager = LinearLayoutManager(context)
