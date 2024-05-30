@@ -92,8 +92,20 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.navigation_game -> {
-                    // Si estas en el fragmento de mi game, haz algo
+                    // Si estas en el fragmento de game, haz algo
                     navController.navigate(R.id.action_navigation_game_to_navigation_profile)
+                }
+                R.id.navigation_completed -> {
+                    // Si estas en el fragmento de completed, haz algo
+                    navController.navigate(R.id.action_navigation_completed_to_navigation_profile)
+                }
+                R.id.navigation_dropped -> {
+                    // Si estas en el fragmento de dropped, haz algo
+                    navController.navigate(R.id.action_navigation_dropped_to_navigation_profile)
+                }
+                R.id.navigation_wishlist -> {
+                    // Si estas en el fragmento de wishlist, haz algo
+                    navController.navigate(R.id.action_navigation_wishlist_to_navigation_profile)
                 }
             }
 

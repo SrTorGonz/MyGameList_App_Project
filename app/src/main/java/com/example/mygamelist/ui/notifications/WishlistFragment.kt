@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mygamelist.GamesFirebase
 import com.example.mygamelist.adapter.PlayingAdapter
+import com.example.mygamelist.adapter.WishlistAdapter
 import com.example.mygamelist.databinding.FragmentWishlistBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentChange
@@ -21,7 +22,7 @@ import com.google.firebase.firestore.QuerySnapshot
 class WishlistFragment : Fragment() {
 
     private lateinit var gameArrayList:ArrayList<GamesFirebase>
-    private lateinit var myAdapter: PlayingAdapter
+    private lateinit var myAdapter: WishlistAdapter
     private lateinit var db: FirebaseFirestore
 
     private var _binding: FragmentWishlistBinding? = null
@@ -60,7 +61,7 @@ class WishlistFragment : Fragment() {
 
         gameArrayList = arrayListOf()
 
-        myAdapter = PlayingAdapter(gameArrayList)
+        myAdapter = WishlistAdapter(gameArrayList)
         binding.recyclerPlaying.adapter = myAdapter
 
         eventChangeListener()

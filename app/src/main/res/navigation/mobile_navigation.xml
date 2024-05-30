@@ -94,6 +94,10 @@
             android:id="@+id/action_navigation_completed_to_navigation_wishlist"
             app:destination="@id/navigation_wishlist"
             app:popUpTo="@id/navigation_completed" />
+        <action
+            android:id="@+id/action_navigation_completed_to_navigation_profile"
+            app:destination="@id/navigation_profile"
+            app:popUpTo="@id/navigation_completed" />
     </fragment>
     <fragment
         android:id="@+id/navigation_dropped"
@@ -111,6 +115,10 @@
             android:id="@+id/action_navigation_dropped_to_navigation_wishlist"
             app:destination="@id/navigation_wishlist"
             app:popUpTo="@id/navigation_dropped" />
+        <action
+            android:id="@+id/action_navigation_dropped_to_navigation_profile"
+            app:destination="@id/navigation_profile"
+            app:popUpTo="@id/navigation_dropped" />
     </fragment>
     <fragment
         android:id="@+id/navigation_wishlist"
@@ -127,6 +135,10 @@
         <action
             android:id="@+id/action_navigation_wishlist_to_navigation_dropped"
             app:destination="@id/navigation_dropped"
+            app:popUpTo="@id/navigation_wishlist" />
+        <action
+            android:id="@+id/action_navigation_wishlist_to_navigation_profile"
+            app:destination="@id/navigation_profile"
             app:popUpTo="@id/navigation_wishlist" />
     </fragment>
 
